@@ -11,6 +11,7 @@ use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthenticationRecovery;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -30,6 +31,30 @@ final class User extends Authenticatable implements FilamentUser, HasAppAuthenti
         'app_authentication_secret',
         'app_authentication_recovery_codes',
     ];
+
+    /**
+     * @return HasMany<AddressBook, $this>
+     */
+    public function addressBooks(): HasMany
+    {
+        return $this->hasMany(AddressBook::class);
+    }
+
+    /**
+     * @return HasMany<Contact, $this>
+     */
+    public function contacts(): HasMany
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    /**
+     * @return HasMany<Sender, $this>
+     */
+    public function senders(): HasMany
+    {
+        return $this->hasMany(Sender::class);
+    }
 
     public function canAccessPanel(Panel $panel): bool
     {
