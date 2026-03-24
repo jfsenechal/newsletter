@@ -1,26 +1,20 @@
 Create a Filament Blueprint for 
-Create a system to manage the mass sending of emails.
-Each user must have one or more address books.
-Each user must have contacts.
-A contact can be in multiple address books.
-A user can share their address book with other users with read or write access.
-A user can share their contacts with other users with read or write access.
-A contact consists of a last name, first name, email address, description, and phone number.
-A user can manage multiple senders.
-A sender contains a name and an email address.
-A contact is unique by its email address.
-When sending an email, you select which address book to send it to.
+create a new email
+select one sender of user
+subject
+body
+attachments
+send button
+send to addresse book or select a list of recipients
 
-use filament 5 and laravel 13
-phase 1
+body is wysiwyg
 
-create migrations for all the components
-phase2
+use filament resource for this
 
-create models for all the components
-phase3
+the send is asynchronous, the user can see the progress of sending
+send 50 emails in parallel
 
-create a seeder to populate the database
+there is a queue for sending emails
 
-phase4
-create filamentphp ressource to manage all the components
+there is a layout for the emails
+
