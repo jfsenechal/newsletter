@@ -7,6 +7,7 @@ namespace App\Filament\Resources\Emails;
 use App\Filament\Resources\Emails\Pages\CreateEmail;
 use App\Filament\Resources\Emails\Pages\EditEmail;
 use App\Filament\Resources\Emails\Pages\ListEmails;
+use App\Filament\Resources\Emails\Pages\ViewEmail;
 use App\Filament\Resources\Emails\Schemas\EmailForm;
 use App\Filament\Resources\Emails\Tables\EmailsTable;
 use App\Models\Email;
@@ -51,6 +52,7 @@ final class EmailResource extends Resource
         return [
             'index' => ListEmails::route('/'),
             'create' => CreateEmail::route('/create'),
+            'view' => ViewEmail::route('/{record}'),
             'edit' => EditEmail::route('/{record}/edit'),
         ];
     }

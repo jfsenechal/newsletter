@@ -7,6 +7,7 @@ namespace App\Filament\Resources\AddressBooks;
 use App\Filament\Resources\AddressBooks\Pages\CreateAddressBook;
 use App\Filament\Resources\AddressBooks\Pages\EditAddressBook;
 use App\Filament\Resources\AddressBooks\Pages\ListAddressBooks;
+use App\Filament\Resources\AddressBooks\Pages\ViewAddressBook;
 use App\Filament\Resources\AddressBooks\Schemas\AddressBookForm;
 use App\Filament\Resources\AddressBooks\Tables\AddressBooksTable;
 use App\Models\AddressBook;
@@ -53,6 +54,7 @@ final class AddressBookResource extends Resource
         return [
             'index' => ListAddressBooks::route('/'),
             'create' => CreateAddressBook::route('/create'),
+            'view' => ViewAddressBook::route('/{record}'),
             'edit' => EditAddressBook::route('/{record}/edit'),
         ];
     }
