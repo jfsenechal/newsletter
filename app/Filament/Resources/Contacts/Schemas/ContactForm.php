@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\Contacts\Schemas;
 
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -32,10 +33,8 @@ final class ContactForm
                 Textarea::make('description')
                     ->rows(3)
                     ->maxLength(65535),
-                Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->default(fn (): ?int => auth()->id())
-                    ->required(),
+                Hidden::make('user_id')
+                    ->default(fn (): ?int => auth()->id()),
                 Select::make('addressBooks')
                     ->relationship('addressBooks', 'name')
                     ->multiple()

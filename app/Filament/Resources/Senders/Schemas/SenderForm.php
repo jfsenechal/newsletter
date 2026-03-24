@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Filament\Resources\Senders\Schemas;
 
-use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Hidden;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -21,10 +21,8 @@ final class SenderForm
                     ->email()
                     ->maxLength(255)
                     ->required(),
-                Select::make('user_id')
-                    ->relationship('user', 'name')
-                    ->default(fn (): ?int => auth()->id())
-                    ->required(),
+                Hidden::make('user_id')
+                    ->default(fn (): ?int => auth()->id()),
             ]);
     }
 }
